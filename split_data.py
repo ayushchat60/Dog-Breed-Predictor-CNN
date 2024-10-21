@@ -1,6 +1,7 @@
 import os
-import shutil
 import random
+import shutil
+
 
 def split_data(data_dir, train_dir, val_dir, val_ratio=0.2):
     breeds = [d for d in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, d))]
@@ -21,10 +22,9 @@ def split_data(data_dir, train_dir, val_dir, val_ratio=0.2):
         for img in val_images:
             shutil.move(os.path.join(breed_path, img), os.path.join(val_dir, breed, img))
 
-        os.rmdir(breed_path)  # Remove empty directory
+        os.rmdir(breed_path)
 
-# Replace these paths with your actual paths
-data_dir = '/Users/ayushc./Downloads/Images'  # Correct path to your Images directory
+data_dir = '/Users/ayushc./Downloads/Images'
 train_dir = '/Users/ayushc./Downloads/data/train'
 val_dir = '/Users/ayushc./Downloads/data/validation'
 
